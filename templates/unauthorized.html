@@ -1,0 +1,28 @@
+{% extends "index.html"  %}
+
+{% block login %}
+<a href="/login">LOGIN WITH GITHUB</a>
+{% endblock %}
+
+{% block adder %}
+{% endblock %}
+
+
+{% block content %}
+ <table>
+{% for SF in objects %}
+<tr>
+
+<td>{{ SF.id }}</td>
+<td>{{ SF.name }}</td>
+<td>{{ SF.regnumb }}</td>
+<td>{{ SF.datereg }}</td>
+    <td>{{ SF.Person.surname }}</td>
+    <td>{{ SF.Address.city }}</td>
+</tr>
+
+{% endfor %}
+</table>
+
+
+{% endblock %}

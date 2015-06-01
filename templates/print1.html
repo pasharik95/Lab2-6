@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h1>Register Data</h1>
+
+<h2>Methods</h2>
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Method name</th>
+        <th>Authors</th>
+        <th>Category</th>
+        <th>Creation date</th>
+        <th>Approval date</th>
+    </tr>
+
+    {% for method in methods %}
+    <tr>
+        <td>{{ method.id }}</td>
+        <td>{{ method.name }}</td>
+        <td>
+
+            {% for author in method.authors %}
+                {{ author.name }} <br>
+            {% endfor %}
+
+        </td>
+        <td>{{ method.category.name }}</td>
+        <td>{{ method.creation_date }}</td>
+        <td>{{ method.approval_date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Authors</h2>
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Author name</th>
+        <th>Methods</th>
+    </tr>
+
+    {% for author in authors %}
+    <tr>
+        <td>{{ author.id }}</td>
+        <td>{{ author.name }}</td>
+        <td>
+
+            {% for method in author.methods %}
+                {{ method.name }} <br>
+            {% endfor %}
+
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Categories</h2>
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Category name</th>
+        <th>Methods</th>
+    </tr>
+
+    {% for category in categories %}
+    <tr>
+        <td>{{ category.id }}</td>
+        <td>{{ category.name }}</td>
+        <td>
+            {% for method in category.methods %}
+                {{ method.name }} <br>
+            {% endfor %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+
+</body>
+</html>

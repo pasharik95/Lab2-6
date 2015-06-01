@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h1>Register Data</h1>
+
+<h2>Demands</h2>
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Sum</th>
+        <th>Debtor name</th>
+        <th>Creditor name</th>
+    </tr>
+
+    {% for demand in demands %}
+    <tr>
+        <td>{{ demand.id }}</td>
+        <td>{{ demand.sum }}</td>
+        <td>{{ demand.debtor.name }}</td>
+        <td>{{ demand.creditor.name }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Debtors</h2>
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Debtor name</th>
+        <th>Demands</th>
+    </tr>
+
+    {% for debtor in debtors %}
+    <tr>
+        <td>{{ debtor.id }}</td>
+        <td>{{ debtor.name }}</td>
+        <td>
+
+            {% for demand in debtor.demands %}
+                {{ demand.sum }} <br>
+            {% endfor %}
+
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Creditors</h2>
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Creditor name</th>
+        <th>Demands</th>
+    </tr>
+
+    {% for category in categories %}
+    <tr>
+        <td>{{ creditor.id }}</td>
+        <td>{{ creditor.name }}</td>
+        <td>
+            {% for demand in creditor.demands %}
+                {{ demand.sum }} <br>
+            {% endfor %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

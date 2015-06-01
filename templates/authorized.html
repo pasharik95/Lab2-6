@@ -1,0 +1,38 @@
+{% extends "index.html"  %}
+
+{% block login %}
+<a href="/logout">LOGOUT</a>
+{% endblock %}
+
+{% block adder %}
+
+<form action="/add" method="post">
+ {{ form.name }}
+ {{ form.regnumb }}
+ {{ form.datereg }}
+ {{ form.person }}
+ {{ form.address }}
+ {{ form.submit }}
+</form>
+
+{% endblock %}
+
+{% block content %}
+ <table>
+{% for SF in objects %}
+<tr>
+
+<td>{{ SF.id }}</td>
+<td>{{ SF.name }}</td>
+<td>{{ SF.regnumb }}</td>
+<td>{{ SF.datereg }}</td>
+    <td>{{ SF.Person.surname }}</td>
+    <td>{{ SF.Address.city }}</td>
+<td><a href="/update/{{ SF.id }}">Update</a></td>
+<td><a href="/delete/{{ SF.id }}">Delete</a></td>
+
+</tr>
+
+{% endfor %}
+</table>
+{% endblock %}
